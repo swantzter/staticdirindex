@@ -32,7 +32,7 @@ def generate(dir, rootdir, sitename, manager, ignored):
         try:
             preview = manager.get_jpeg_preview(
                 f"{dir}/{fname}", height=260)
-            preview = re.sub(r'^\.', '', preview)
+            preview = rootdir+"/"+re.sub(r'^\./?', '', preview)
         except Exception as e:
             # print(e)
             preview = None
