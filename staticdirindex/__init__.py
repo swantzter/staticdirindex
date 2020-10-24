@@ -12,7 +12,7 @@ from mako.lookup import TemplateLookup
 from preview_generator.manager import PreviewManager
 
 EXCLUDED = ['index.html', 'header.html', '.git',
-            '.gitignore', '.listignore', '.preview_cache']
+            '.gitignore', '.listignore', 'previews']
 
 
 def generate(dir, rootdir, sitename, manager, ignored):
