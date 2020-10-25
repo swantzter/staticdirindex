@@ -37,7 +37,8 @@
       padding-bottom: 2em;
     }
 
-    p {
+    p,
+    ul {
       max-width: 600px;
     }
 
@@ -48,12 +49,11 @@
 </head>
 
 <body>
-  <h2>Index of ${path}</h2>
-  <hr />
   % if header:
   ${header}
   <hr />
   % endif
+  <h2>Index of ${path}</h2>
   <table>
     % if path != '/':
     <tr>
@@ -63,7 +63,6 @@
       <td><a href="../">../</a></td>
     </tr>
     % endif
-
     % for name in dirnames:
     <tr>
       <td valign="top"><img
