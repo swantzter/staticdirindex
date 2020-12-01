@@ -11,6 +11,8 @@ from mako.template import Template
 from mako.lookup import TemplateLookup
 from preview_generator.manager import PreviewManager
 
+__version__ = '1.6'
+
 EXCLUDED = ['index.html', 'header.html', '.git',
             '.gitignore', '.listignore', 'previews']
 
@@ -50,7 +52,8 @@ def generate(dir, rootdir, sitename, manager, ignored):
             header=header,
             now=datetime.datetime.utcnow().isoformat(),
             ROOTDIR=rootdir,
-            sitename=sitename
+            sitename=sitename,
+            version=__version__
         ),
         file=f
     )
