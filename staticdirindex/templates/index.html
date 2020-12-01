@@ -13,10 +13,6 @@
   <title>${path}</title>
   % endif
   <style>
-    .thumbnail {
-      height: 10rem;
-    }
-
     .thumbnail:hover {
       background: #ccc;
     }
@@ -78,7 +74,7 @@
           alt="[DIR]"></td>
       <td><a href="${file['name']}">
           % if file['preview']:
-          <img src="${file['preview']}" alt="[THUMBNAIL]" class="thumbnail"><br />
+          <img src="${file['preview']}" alt="[THUMBNAIL]" style="height: 10rem;" class="thumbnail" loading="lazy"><br />
           % endif
           ${file['name']}</a></td>
     </tr>
