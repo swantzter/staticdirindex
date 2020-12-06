@@ -12,7 +12,7 @@ from mako.template import Template
 from mako.lookup import TemplateLookup
 from preview_generator.manager import PreviewManager
 
-__version__ = '1.8'
+__version__ = '1.9'
 
 EXCLUDED = ['index.html', 'header.html', '.git',
             '.gitignore', '.listignore', 'previews',
