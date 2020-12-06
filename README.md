@@ -57,7 +57,7 @@ missing. You may have to read preview-generator's documentation to see what is
 required for your system, but for ubuntu-latest the following should give you
 previews for most things
 
-```shell
+```console
 # apt-get install zlib1g-dev libjpeg-dev python3-pythonmagick inkscape \
   xvfb poppler-utils libfile-mimeinfo-perl qpdf libimage-exiftool-perl \
   ufraw-batch ffmpeg  libmagickwand-dev libreoffice
