@@ -12,7 +12,7 @@ workflow in [example-action.yml](example-action.yml)
 ## Usage
 
 ```
-usage: staticdirindex [--sitename SITENAME] directory
+usage: staticdirindex [--sitename SITENAME] [--baseurl BASEURL] directory
 ```
 
 Note that the directory indices will be generated as in-place in `directory`
