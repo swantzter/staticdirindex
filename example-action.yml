@@ -1,0 +1,48 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.1.4
+        with:
+          python-version: 3.x
+
+      - name: Install required packages from apt
+        run: sudo apt-get install zlib1g-dev libjpeg-dev python3-pythonmagick inkscape xvfb poppler-utils libfile-mimeinfo-perl qpdf libimage-exiftool-perl ufraw-batch ffmpeg  libmagickwand-dev libreoffice
+
+      - name: Install python packages with pip
+        uses: BSFishy/pip-action@v1
+        with:
+          requirements: requirements.txt
+
+      - name: Cache
+        uses: actions/cache@v2.1.2
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: |
+            previews
+            ~/.cache/pip
+          # An explicit key for restoring and saving the cache
+          key: ${{ runner.os }}-${{ hashFiles('**/previews') }}-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Generate index
+        run: staticdirindex . --sitename=""
+
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          user_name: Github Actions
+          user_email:
+          cname:
+          exclude_assets: ".github,.listignore,.gitignore,README.md,requirements.txt,**/*.lock"
