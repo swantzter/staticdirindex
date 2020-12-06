@@ -33,9 +33,14 @@ add a `.listignore` file to the root directory with the same format as a
 
 ### Sitemap
 
-`--base-url` To Be Implemented, see [#5][5]
+staticdirindex will generate a sitemap.xml in the root directory and a
+robots.txt file that points to this sitemap. If the `--baseurl` parameter is
+passed. (This is required to generate a [sitemap.org](https://sitemap.org)
+compliant file as it requires each file location to be absolute and include
+protocol)
 
-[5]: https://github.com/swantzter/staticdirindex/issues/5
+Passing `--baseurl` will also add `<link rel="canonical">` to each directory
+listing.
 
 ### schema.org json+ld
 

@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/previews') }}-${{ hashFiles('**/requirements.txt') }}
 
       - name: Generate index
-        run: staticdirindex . --sitename=""
+        run: staticdirindex . --sitename="" --baseurl="https://example.com"
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.7.3
