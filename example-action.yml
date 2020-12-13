@@ -17,7 +17,11 @@ jobs:
           python-version: 3.x
 
       - name: Install required packages from apt
-        run: sudo apt-get install zlib1g-dev libjpeg-dev python3-pythonmagick inkscape xvfb poppler-utils libfile-mimeinfo-perl qpdf libimage-exiftool-perl ufraw-batch ffmpeg  libmagickwand-dev libreoffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install zlib1g-dev libjpeg-dev python3-pythonmagick \
+          inkscape xvfb poppler-utils libfile-mimeinfo-perl qpdf \
+          libimage-exiftool-perl ufraw-batch ffmpeg  libmagickwand-dev libreoffice
 
       - name: Install python packages with pip
         uses: BSFishy/pip-action@v1
