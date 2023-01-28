@@ -112,8 +112,10 @@ def generate(dir, rootdir, sitename, url, manager, ignored, sitemap):
         )
         f.close()
 
-        f = open(f"{dir}/robots.txt", "a")
-        print(f"Sitemap: {url}/sitemap.xml", file=f)
+        f = open(f"{dir}/robots.txt", "r+")
+        contents = f.read()
+        if not f"Sitemap: {url}/sitemap.xml" in contents:
+            print(f"Sitemap: {url}/sitemap.xml", file=f)
         f.close()
 
 
